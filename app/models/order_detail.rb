@@ -16,6 +16,8 @@
 
 class OrderDetail < ApplicationRecord
   PAYMENT_METHOD = {online: 1, cash: 2}
+  has_one   :order
+
   validates :username, :address, :phone, :price, presence: true
   validates :payment_method, inclusion: {in: PAYMENT_METHOD.values}
   validates :username, length: {maximum: 200}
