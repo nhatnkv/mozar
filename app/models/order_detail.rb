@@ -8,7 +8,7 @@
 #  phone          :string(255)
 #  note           :text(65535)
 #  price          :integer
-#  line_item_id   :integer
+#  cart_id        :integer
 #  payment_method :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -16,7 +16,8 @@
 
 class OrderDetail < ApplicationRecord
   PAYMENT_METHOD = {online: 1, cash: 2}
-  has_one   :order
+  has_one    :order
+  belongs_to :cart_id
 
   validates :username, :address, :phone, :price, presence: true
   validates :payment_method, inclusion: {in: PAYMENT_METHOD.values}
