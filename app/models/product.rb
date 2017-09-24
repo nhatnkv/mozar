@@ -18,6 +18,7 @@ class Product < ApplicationRecord
   STATUS = {display: 1, block: 2, empty: 3, sell: 4}
   belongs_to :category
   has_many   :images
+  has_many   :line_items_product
 
   validates :name, :price, :description, :quantity, :status, presence: true
   validates :name, length: {maximum: 200}
