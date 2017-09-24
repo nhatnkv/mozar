@@ -2,9 +2,10 @@
 
 <h1>Categories</h1>
 
-<table class="table table-border">
+<table class="table table-striped">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Level</th>
       <th>Parent</th>
@@ -15,12 +16,13 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
+        <td><%= category.id %></td>
         <td><%= category.name %></td>
         <td><%= category.level %></td>
         <td><%= category.parent_id %></td>
-        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Show', manager_category_path(category) %></td>
         <td><%= link_to 'Edit', edit_manager_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', manager_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

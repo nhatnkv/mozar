@@ -1,4 +1,4 @@
-root_categories = ["Shoes", "T-Shirt", "Jean", "Vest", "Coast"]
+root_categories = ["Shoes", "T-Shirt", "Jean", "Vest"]
 
 puts "Creating root category"
 Category.destroy_all
