@@ -11,13 +11,23 @@
 #
 
 class Category < ApplicationRecord
-  LEVEL = {small: 3, medium: 2, major: 1}
+  LEVEL = {small: 3, medium: 2, root: 1}
 
-  has_many :children, class_name: self.name, foreign_key: :parent_id
+  has_many :children, class_name: self.name, foreign_key: :parent_id, dependent: :destroy
   belongs_to :parent, class_name: self.name, foreign_key: :parent_id, optional: true
   has_many :products
 
   validates :name, presence: true, length: {maximum: 200}
-  validates :level, presence: true, numericality: {only_integer: true}
-  validates :level, inclusion: {in: LEVEL.values}
+
+  before_save :set_level
+
+  def set_level
+    if self.children.any? && self.parent.present?
+      self.level = LEVEL[:medium]
+    elsif self.parent.nil?
+      self.level = LEVEL[:root]
+    else self.children.blank?
+      self.level = LEVEL[:small]
+    end
+  end
 end
