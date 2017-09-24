@@ -15,7 +15,9 @@ class Category < ApplicationRecord
 
   has_many :children, class_name: self.name, foreign_key: :parent_id
   belongs_to :parent, class_name: self.name, foreign_key: :parent_id, optional: true
+  has_many :products
 
   validates :name, presence: true, length: {maximum: 200}
   validates :level, presence: true, numericality: {only_integer: true}
+  validates :level, inclusion: {in: LEVEL.values}
 end
