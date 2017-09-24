@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :manager do
+    resources :products
     resources :categories
   end
   root 'homes#index'
