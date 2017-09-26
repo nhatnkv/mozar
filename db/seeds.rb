@@ -10,8 +10,9 @@ end
 puts "Creating category"
 Category.where(level: 1).each do |category|
   root_categories.each do |name|
-    Category.create(name: "#{name}_small", parent_id: category.id)
+    Category.create(name: FFaker::Name.name, parent_id: category.id)
   end
+
 end
 
 puts "Create medium category"
@@ -23,4 +24,15 @@ categories_last.each do |category_last|
     category_last.update(parent_id: category_medium.id)
     category_medium.update(name: "#{root_categories.sample}_medium")
   end
+end
+
+puts "Creating product"
+Product.destroy_all
+Category.where(level: 3).each do |category|
+  Product.create(name: FFaker::Name.name,
+    price: FFaker::Address.building_number,
+    description: FFaker::Lorem.paragraphs,
+    quantity: rand(1000..5000),
+    status: Product::STATUS.values.sample,
+    category_id: category.id)
 end
