@@ -2,38 +2,43 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @manager_product.name %>
+  <%= @product.name %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @manager_product.price %>
+  <%= @product.price %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @manager_product.description %>
+  <%= @product.description %>
 </p>
-
+<% @product.images.each_with_index do |image, index| %>
+  <p>
+    <strong>Image <%= index += 1 %></strong>
+    <%= image_tag image.url, height: 100, width: 100 %>
+  </p>
+<% end %>
 <p>
   <strong>Quantity:</strong>
-  <%= @manager_product.quantity %>
+  <%= @product.quantity %>
 </p>
 
 <p>
   <strong>Status:</strong>
-  <%= @manager_product.status %>
+  <%= @product.status %>
 </p>
 
 <p>
   <strong>Tag:</strong>
-  <%= @manager_product.tag %>
+  <%= @product.tag %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @manager_product.category_id %>
+  <%= @product.category_id %>
 </p>
 
-<%= link_to 'Edit', edit_manager_product_path(@manager_product) %> |
+<%= link_to 'Edit', edit_manager_product_path(@product) %> |
 <%= link_to 'Back', manager_products_path %>

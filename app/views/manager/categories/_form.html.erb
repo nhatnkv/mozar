@@ -16,14 +16,14 @@
     <%= form.text_field :name, id: :category_name %>
   </div>
 
-  <div class="field">
+  <div class="field form-control">
     <%= form.label :level %>
     <%= form.number_field :level, id: :category_level %>
   </div>
 
   <div class="field">
     <%= form.label :parent_id %>
-    <%= form.number_field :parent_id, id: :category_parent_id %>
+    <%= form.select :parent_id, Category.where.not(level: 3).collect { |p| [ p.name, p.id ] }, include_blank: true, selected: 1 %>
   </div>
 
   <div class="actions">

@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.number_field :category_id, id: :product_category_id %>
+    <%= form.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, include_blank: true, selected: 1 %>
   </div>
 
   <div class="actions">
