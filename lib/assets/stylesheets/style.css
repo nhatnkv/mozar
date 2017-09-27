@@ -3877,7 +3877,10 @@ line-height: 33px;
 #text-search {
   line-height: 0 !important;
 }
-
+.image-product {
+  width: 540px;
+  height: 728px;
+}
 
 
 
