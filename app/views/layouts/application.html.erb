@@ -60,7 +60,9 @@
                                         <li><a href="account.html">My Account <i class="fa fa-angle-down"></i></a>
                                             <ul class="account-dropdown">
                                                 <li><a href="wishlist.html">My Wishlist</a></li>
-                                                <li><a href="cart.html">My Cart</a></li>
+                                                <li>
+  													<%= link_to "My Cart", cart_path(@cart.id), method: :get %>
+                                                </li>
                                                 <li><a href="checkout.html">Checkout</a></li>
                                                 <li><a href="blog.html">Blog</a></li>
                                                 <li><a href="account.html">Log In</a></li>
@@ -109,7 +111,10 @@
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-4">
                             <ul class="header-r-cart">
-                                <li><a class="cart" href="#">My Cart:<%= @cart.present? ? @cart.line_items.count : 0 %> items</a>
+                                <li><a class="cart">My Cart:
+                                	<span id="line-item-count"><%= @cart.present? ? @cart.line_items.count : 0 %>
+                                	</span> items
+                                	</a>
                                     <div class="mini-cart-content">
                                         <div class="cart-products-list">
                                         	<%= render partial: "carts/cart" %>
