@@ -90,16 +90,7 @@
                                 <form class="search-box" action="#" method="post">
                                     <div class="search-categories">
                                         <div class="search-cat">
-                                            <select class="category-items " name="category">
-                                                <option>All Categories</option>
-                                                <option>Women</option>
-                                                <option>Men</option>
-                                                <option>Jewllery</option>
-                                                <option>Bootees Bags</option>
-                                                <option>Clothing</option>
-                                                <option>Footwear</option>
-                                                <option>T-Shirts</option>
-                                            </select>
+                                        	<%= select_tag "category", options_from_collection_for_select(Category.where(level: 1), "id", "name"), class: "category-items" %>
                                         </div>
                                     </div>
                                     <input type="search" placeholder="Search here..." id="text-search" name="search">
@@ -130,10 +121,7 @@
                 </div>    
             </div>
         </div>
-        <!--Mainmenu Start-->
         <%= render partial: '/layouts/navigation' %>
-        <!--End of Mainmenu-->
-        <!-- Mobile Menu Area start -->
         <div class="mobile-menu-area">
             <div class="container">
                 <div class="row">
@@ -177,7 +165,7 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu Area end -->
+        
     </header>
     <%= yield %>
     <div class="brand-area">
@@ -359,7 +347,7 @@
       </div>
     </div>
     <div id="quickview-wrapper">
-      <!-- Modal -->
+      
       <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -402,7 +390,7 @@
                       </ul>
                     </div>
                   </div>
-                </div><!-- .product-info -->
+                </div>
               </div>
             </div>
           </div>
