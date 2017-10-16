@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :line_items
+  resources :carts
   resources :images
   namespace :manager do
     resources :products

@@ -23,7 +23,12 @@
 
   <div class="field">
     <%= form.label :product_id %>
-    <%= form.select :product_id, Product.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
+    <%= form.select :product_id, Product.all.collect { |p| [ p.name, p.id ] }, selected: 1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag %>
+    <%= form.select :tag, options_from_collection_for_select(Image::TAG, :last, :first, 1) %>
   </div>
 
   <div class="actions">

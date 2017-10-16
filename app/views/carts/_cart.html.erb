@@ -1,0 +1,21 @@
+<% if @cart.present? && @cart.line_items.exists? %>
+  <% @cart.line_items.includes(:product).each do |line_item| %>
+    <div class="cart-products">
+      <div class="cart-image">
+        <a href="#">
+          <%= image_tag image_tag_cart(line_item), class: "image-cart" %>
+        </a>
+      </div>
+      <div class="cart-product-info">
+        <a href="#" class="product-name"> <%= line_item.product.name %></a>
+        <%= link_to "", line_item_path(line_item.id), method: :delete, class: "remove-product", remote: true %>
+        <div class="price-times">
+          <span class="quantity"><strong> <%= line_item.quantity %></strong></span>
+          <span class="p-price"><%= number_to_currency(line_item.total_price) %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  No item
+<% end %>

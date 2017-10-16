@@ -69,6 +69,6 @@ class ImagesController < ManagerController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:url, :title, :product_id)
+      params.require(:image).permit(:url, :title, :product_id, :tag)
     end
 end
