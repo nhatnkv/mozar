@@ -27,6 +27,7 @@
                 <% @cart.line_items.each do |line_item| %>
                   <tr>
                     <td class="p-image">
+                      <hidden id="_<%= line_item.id %>_"></hidden>
                       <%= link_to "#" do %>
                         <%= image_tag image_tag_cart(line_item), class: "floatleft image-list-item" %>
                       <% end %>
@@ -37,12 +38,12 @@
                     <td class="edit"></td>
                     <td class="p-amount"><%= line_item.product.price %></td>
                     <td class="p-quantity">
-                      <input maxlength="12" type="text" value="<%= line_item.quantity %>" name="quantity"></td>
+                      <input maxlength="12" type="text" value="<%= line_item.quantity %>" name="quantity" class="line-item-quantity"></td>
                     <td class="p-total"><%= line_item.total_price %></td>
                     <td class="p-action">
-                      <a href="#">
+                      <%= link_to line_item_path(line_item.id), method: :delete, remote: true do %>
                         <i class="fa fa-times"></i>
-                      </a>
+                      <% end %>
                     </td>
                   </tr>
                 <% end %>
@@ -136,9 +137,10 @@
               </div>
             </div>
             <div class="col-md-4">
+              <div class="amount-totals cart-total-price">
+                <%= render partial: "carts_total_price", locals: {cart: @cart} %>
+              </div>
               <div class="amount-totals">
-                <p class="total">Subtotal <span>$156.87</span></p>
-                <p class="total">Grandtotal <span>$313.74</span></p>
                 <button class="button" type="button"><span>Procced to checkout</span></button>
                 <div class="clearfix"></div>
                 <p class="floatright">Checkout with multiples address</p>

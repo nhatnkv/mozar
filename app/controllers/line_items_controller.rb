@@ -1,6 +1,7 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create, :destroy]
+  before_action :set_line_item, only: [:update, :destroy]
 
   def create
     product = Product.find(line_item_params[:product_id])
@@ -17,6 +18,13 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def update
+    @line_item.update(quantity: params[:quantity])
+    respond_to do |format|
+      format.json { render json: @cart}
+    end
+  end
+
   def destroy
     @line_item = @cart.line_items.find(params[:id])
     @line_item.destroy
@@ -27,6 +35,11 @@ class LineItemsController < ApplicationController
   end
 
   private
+    def set_line_item
+      @line_item = @cart.line_items.find(params[:id])
+      redirect_to root_path if @line_item.blank?
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
       params.require(:line_item).permit(:product_id)

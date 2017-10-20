@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.includes(:images).all
   end
 end
