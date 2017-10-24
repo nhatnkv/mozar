@@ -7,6 +7,7 @@ end
 
 # Upload Images
 gem 'carrierwave'
+gem 'mini_magick'
 # Authen && Autho
 gem 'devise'
 # ap

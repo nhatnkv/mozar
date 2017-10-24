@@ -29,10 +29,23 @@ end
 puts "Creating product"
 Product.destroy_all
 Category.where(level: 3).each do |category|
-  Product.create(name: FFaker::Name.name,
-    price: FFaker::Address.building_number,
-    description: FFaker::Lorem.paragraphs,
-    quantity: rand(1000..5000),
-    status: Product::STATUS.values.sample,
-    category_id: category.id)
+  4.times do
+    Product.create(
+      name: FFaker::Name.name,
+      price: FFaker::Address.building_number,
+      description: FFaker::Lorem.paragraphs,
+      quantity: rand(1000..5000),
+      status: Product::STATUS.values.sample,
+      category_id: category.id
+    )
+  end
+end
+
+puts "Create images"
+
+Product.all.each do |product|
+  product.images.create(remote_img_url: FFaker::Avatar.image, title: FFaker::CheesyLingo.title, tag: 1)
+  4.times do
+    product.images.create(remote_img_url: FFaker::Avatar.image, title: FFaker::CheesyLingo.title, tag: 2)
+  end
 end

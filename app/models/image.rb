@@ -15,7 +15,7 @@ class Image < ApplicationRecord
   TAG = {main: 1, assistant: 2}
 
   belongs_to :product
-  mount_uploader :url, ImagesUploader
+  mount_uploader :img, ImagesUploader
 
   validate :main_image_exist, on: :create
 

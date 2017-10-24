@@ -16,14 +16,14 @@
                 <div class="single-product-item">
                   <div class="sale-product-label"><span>sale</span></div>
                   <div class="single-product clearfix">
-                    <a href="#">
-                      <span class="product-image">
-                        <%= image_tag image.url, witdh: 540, height: 728%>
+                    <%= link_to product_detail_path(product.id), method: :get do %>
+                      <span class="image-home">
+                        <%= image_tag image.img.url(:img_540x728) %>
                       </span>
                       <div class="timer">
                         <div data-countdown="2022/01/01" class="timer-grid"></div>
                       </div>
-                    </a>
+                    <% end %>
                   </div>
                   <h2 class="single-product-name"><a href="#">Aliquam consequat</a></h2>
                   <div class="price-box">
@@ -78,23 +78,23 @@
               <div class="single-product-item">
                 <div class="new-product-label"><span>new</span></div>
                 <div class="single-product clearfix">
-                  <a href="#">
+                  <%= link_to product_detail_path(product.id), method: :get do %>
                     <span class="product-image">
                       <%= image_tag image_url(product.images, "main") %>
                     </span>
                     <span class="product-image hover-image">
-                      <img src="/assets/product/8.jpg" alt="">
+                      <img src="/assets/product/8.jpg" class="image_160x215" alt="" class="image_160x215">
                     </span>
-                  </a>
+                  <% end %>
                   <div class="button-actions clearfix"> 
                     <%= button_to line_items_path(line_item:{product_id: product}), name: "line_item[]", class: "button add-to-cart", remote: true do %>
                       <span><i class="fa fa-shopping-cart"></i></span>
                     <% end %>
                     <ul class="add-to-links">
                       <li class="quickview">
-                        <a class="btn-quickview modal-view" href="#" data-toggle="modal" data-target="#productModal">
+                        <%= link_to product_show_path(id: product.id), method: :get, remote: true, class: "btn-quickview modal-view" do %>
                           <i class="fa fa-search-plus"></i>
-                        </a>
+                        <% end %>
                       </li>
                       <li>
                         <a class="link-wishlist" href="wishlist.html">

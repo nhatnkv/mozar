@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Url</th>
+      <th>Img</th>
       <th>Title</th>
       <th>Product</th>
       <th colspan="3"></th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @images.each do |image| %>
       <tr>
-        <td><%= image.url %></td>
+        <td><%= image.img %></td>
         <td><%= image.title %></td>
         <td><%= image.product_id %></td>
         <td><%= link_to 'Show', image %></td>

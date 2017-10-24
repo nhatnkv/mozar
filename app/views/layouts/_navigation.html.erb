@@ -6,13 +6,8 @@
                   <div class="mainmenu">
                       <nav>
                           <ul id="nav">
-                              <li class="current"><a href="index.html">Home</a>
-                                  <ul class="sub-menu">
-                                      <li><a href="#" class="mega-title">Homepage</a></li>
-                                      <li><a href="index-2.html">Homepage Version 2</a></li>
-                                      <li><a href="index-3.html">Homepage Version 3</a></li>
-                                      <li><a href="index-4.html">Homepage Version 4</a></li>
-                                  </ul>
+                              <li class="current">
+                                <%= link_to "Home", root_path, method: :get %>
                               </li>
                               <% Category.where(parent_id: nil).each do |root_category| %>
                                 <li>

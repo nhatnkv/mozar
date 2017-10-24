@@ -17,13 +17,13 @@
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
+    <% @products.includes(:images).each do |product| %>
       <tr>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td><%= product.description %></td>
         <% product.images.each do |image| %>
-          <td><%= image_tag image.url, height: 50, width: 50 %></td>
+          <td><%= image_tag image.img, height: 50, width: 50 %></td>
         <% end %>
         <td><%= product.quantity %></td>
         <td><%= product.status %></td>
