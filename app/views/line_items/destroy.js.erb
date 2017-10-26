@@ -1,3 +1,21 @@
 $("#line-item-count").html("<%= @cart.present? ? @cart.line_items.count : 0 %>");
 $(".cart-products-list").html("<%= j render 'carts/cart', cart: @cart %>");
 $(".cart-price-list").html("<%= j render 'carts/total_price', cart: @cart %>");
+$.notify({
+  title: '<strong>Deleted</strong>',
+  icon: 'glyphicon glyphicon-star',
+  message: "<%= @line_item.product.name %> from Cart"
+},{
+  type: 'danger',
+  animate: {
+    enter: 'animated fadeInDown',
+    exit: 'animated fadeOutUp'
+  },
+  placement: {
+    from: "top",
+    align: "right"
+  },
+  offset: 20,
+  spacing: 10,
+  z_index: 1031,
+});

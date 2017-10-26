@@ -3,8 +3,8 @@ class LineItemsController < ApplicationController
   before_action :set_cart, only: [:create, :destroy]
 
   def create
-    product = Product.find(line_item_params[:product_id])
-    @line_item = @cart.add_product(product.id)
+    @product = Product.find(line_item_params[:product_id])
+    @line_item = @cart.add_product(@product.id)
 
     respond_to do |format|
       if @line_item.save
