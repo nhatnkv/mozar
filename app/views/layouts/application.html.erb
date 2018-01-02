@@ -21,359 +21,359 @@
   </head>
 
   <body>
-    <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="header-container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-7">
-                            <div class="header-contact">
-                                <span class="email">Email: nhatnkv@gmail.com </span> / <span class="phone">Phone: +84 1263 053 419</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-5">
-                            <div class="currency-language">
-                                <div class="currency-menu">
-                                    <ul>
-                                        <li><a href="#">USD <i class="fa fa-angle-down"></i></a>
-                                            <ul class="currency-dropdown">
-                                                <li><a href="#">EUR</a></li>
-                                                <li><a href="#">USD</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="language-menu">
-                                    <ul>
-                                        <li><a href="#">English <i class="fa fa-angle-down"></i></a>
-                                            <ul class="language-dropdown">
-                                                <li><a href="#">French</a></li>
-                                                <li><a href="#">English</a></li>
-                                                <li><a href="#">German</a></li>
-                                                <li><a href="#">Arabic</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="account-menu">
-                                    <ul>
-                                        <li><a href="account.html">My Account <i class="fa fa-angle-down"></i></a>
-                                            <ul class="account-dropdown">
-                                                <li><a href="wishlist.html">My Wishlist</a></li>
-                                                <li>
-  													<%= link_to "My Cart", cart_path(@cart.id), method: :get %>
-                                                </li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="account.html">Log In</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        <div class="header-main">
-            <div class="container">
-                <div class="header-content">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-12">
-                            <div class="logo">
-                                <%= link_to root_path, method: :get do %>
-                                  <img src="/assets/logo/logo.png" alt="MOZAR"></a>
-                                <% end %>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-8">
-                            <div id="search-category">
-                                <form class="search-box" action="#" method="post">
-                                    <div class="search-categories">
-                                        <div class="search-cat">
-                                        	<%= select_tag "category", options_from_collection_for_select(Category.where(level: 1), "id", "name"), class: "category-items" %>
-                                        </div>
-                                    </div>
-                                    <input type="search" placeholder="Search here..." id="text-search" name="search">
-                                    <button id="btn-search-category" type="submit">
-                                        <i class="icon-search"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-4">
-                            <ul class="header-r-cart">
-                                <li><a class="cart">My Cart:
-                                	<span id="line-item-count"><%= @cart.present? ? @cart.line_items.count : 0 %>
-                                	</span> items
-                                	</a>
-                                    <div class="mini-cart-content">
-                                        <div class="cart-products-list">
-                                        	<%= render partial: "carts/cart" %>
-                                        </div>
-                                        <div class="cart-price-list">
-                                            <%= render partial: "carts/total_price" %>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        <%= render partial: '/layouts/navigation' %>
-        <div class="mobile-menu-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="mobile-menu">
-                            <nav id="dropdown">
-                                <ul>
-                                    <li><a href="index.html">HOME</a>
-                                        <ul>
-                                            <li><a href="index-2.html">Home 2</a></li>
-                                            <li><a href="index-3.html">Home 3</a></li>
-                                            <li><a href="index-4.html">Home 4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">SHOP</a>
-                                        <ul>
-                                            <li><a href="shop-grid.html">Shop Grid</a></li>
-                                            <li><a href="shop-list.html">Shop List</a></li>
-                                            <li><a href="product-details.html">Product Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">ABOUT</a>
-                                    <li><a href="#">PAGES</a>
-                                        <ul>
-                                            <li><a href="account.html">My Account</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">CONTACT</a></li>
-                                </ul>
-                            </nav>
-                        </div>          
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </header>
-    <%= yield %>
-    <div class="brand-area">
+  <header>
+    <div class="header-top">
       <div class="container">
-        <div class="brand-content-home-three">
+        <div class="header-container">
           <div class="row">
-            <div class="brand-carousel">
-              <div class="col-md-2">
-                <div class="single-brand">
-                  <a href="#">
-                    <img src="/assets/brand/1.jpg" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="single-brand">
-                  <a href="#">
-                    <img src="/assets/brand/2.jpg" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="single-brand">
-                  <a href="#">
-                    <img src="/assets/brand/3.jpg" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="single-brand">
-                  <a href="#">
-                    <img src="/assets/brand/4.jpg" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="single-brand">
-                  <a href="#">
-                    <img src="/assets/brand/5.jpg" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="single-brand">
-                  <a href="#">
-                    <img src="/assets/brand/6.jpg" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="single-brand">
-                  <a href="#">
-                    <img src="/assets/brand/1.jpg" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="single-brand">
-                  <a href="#">
-                    <img src="/assets/brand/6.jpg" alt="">
-                  </a>
-                </div>
+            <div class="col-md-6 col-sm-7">
+              <div class="header-contact">
+                <span class="email">Email: nhatnkv@gmail.com </span> / <span class="phone">Phone: +84 1263 053 419</span>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="service-area">
-      <div class="container">
-        <div class="service-padding">   
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-              <div class="single-service">
-                <span class="fa fa-truck"></span>
-                <h3>fREE SHIPPING</h3>
-                <p>One order over $99</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-              <div class="single-service">
-                <span class="fa fa-dropbox"></span>
-                <h3>Special gift cards</h3>
-                <p> Give the perfect gift</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-              <div class="single-service">
-                <span class="fa fa-calendar-o"></span>
-                <h3>Daily promotion</h3>
-                <p> Set up perspiciatis unde</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 hidden-sm col-xs-12">
-              <div class="single-service">
-                <span class="fa fa-comments-o"></span>
-                <h3>Special gift cards</h3>
-                <p> Give the perfect gift</p>
+            <div class="col-md-6 col-sm-5">
+              <div class="currency-language">
+                <div class="currency-menu">
+                  <ul>
+                    <li><a href="#">USD <i class="fa fa-angle-down"></i></a>
+                      <ul class="currency-dropdown">
+                        <li><a href="#">EUR</a></li>
+                        <li><a href="#">USD</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="language-menu">
+                  <ul>
+                    <li><a href="#">English <i class="fa fa-angle-down"></i></a>
+                      <ul class="language-dropdown">
+                        <li><a href="#">French</a></li>
+                        <li><a href="#">English</a></li>
+                        <li><a href="#">German</a></li>
+                        <li><a href="#">Arabic</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="account-menu">
+                  <ul>
+                    <li><a href="account.html">My Account <i class="fa fa-angle-down"></i></a>
+                      <ul class="account-dropdown">
+                        <li><a href="wishlist.html">My Wishlist</a></li>
+                        <li>
+                          <%= link_to "My Cart", cart_path(@cart.id), method: :get %>
+                        </li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="account.html">Log In</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>    
       </div>
     </div>
-    <div class="footer-widget-area">
+    <div class="header-main">
       <div class="container">
-        <div class="footer-widget-padding"> 
+        <div class="header-content">
           <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-              <div class="single-widget">
-                <div class="footer-widget-title">
-                  <h3>our support</h3>
-                </div>
-                <div class="footer-widget-list ">
-                  <ul>
-                    <li><a href="#">Sitemap</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Your Account</a></li>
-                    <li><a href="#">Advanced Search</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                  </ul>
-                </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="logo">
+                <%= link_to root_path, method: :get do %>
+                  <img src="/assets/logo/logo.png" alt="MOZAR"></a>
+                <% end %>
               </div>
             </div>
-            <div class="col-lg-3 col-md-3 hidden-sm col-xs-12">
-              <div class="single-widget">
-                <div class="footer-widget-title">
-                  <h3>My account</h3>
-                </div>
-                <div class="footer-widget-list ">
-                  <ul>
-                    <li><a href="#">My Account</a></li>
-                    <li><a href="#">Order History</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Specials</a></li>
-                    <li><a href="#">Site Map</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-              <div class="single-widget">
-                <div class="footer-widget-title">
-                  <h3>Contact us</h3>
-                </div>
-                <div class="footer-widget-list ">
-                  <ul class="address">
-                    <li><span class="fa fa-map-marker"></span> Addresss: Lorem ipsum dolor</li>
-                    <li><span class="fa fa-phone"></span> (800) 0123 4567 890</li>
-                    <li class="support-link"><span class="fa fa-envelope-o"></span> admin@bootexperts.com</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-              <div class="single-widget">
-                <div class="footer-widget-title">
-                  <h3>Sign up for newsletter</h3>
-                </div>
-                <div class="footer-widget-list ">
-                  <form id="newsletter" method="post" action="#">
-                    <div class="newsletter-content">
-                       <input type="text" name="email">
-                      <button class="button" type="submit"><span>Subscribe</span></button>
+            <div class="col-lg-6 col-md-6 col-sm-8">
+              <div id="search-category">
+                <form class="search-box" action="#" method="post">
+                  <div class="search-categories">
+                    <div class="search-cat">
+                      <%= select_tag "category", options_from_collection_for_select(Category.where(level: 1), "id", "name"), class: "category-items" %>
                     </div>
-                  </form>
-                  <ul class="social-link">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  </ul>
-                </div>
+                  </div>
+                  <input type="search" placeholder="Search here..." id="text-search" name="search">
+                  <button id="btn-search-category" type="submit">
+                    <i class="icon-search"></i>
+                  </button>
+                </form>
               </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4">
+              <ul class="header-r-cart">
+                <li><a class="cart">My Cart:
+                  <span id="line-item-count"><%= @cart.present? ? @cart.line_items.count : 0 %>
+                  </span> items
+                  </a>
+                  <div class="mini-cart-content">
+                    <div class="cart-products-list">
+                      <%= render partial: "carts/cart" %>
+                    </div>
+                    <div class="cart-price-list">
+                      <%= render partial: "carts/total_price" %>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
+        </div>    
       </div>
     </div>
-    <div class="modal-detail">
-    </div>
-    <footer class="footer footer">
+    <%= render partial: '/layouts/navigation' %>
+    <div class="mobile-menu-area">
       <div class="container">
-        <div class="footer-padding">
-          <div class="row">
-            <div class="col-md-7">
-              <nav>
-                <ul id="footer-menu">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Customer Service</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="mobile-menu">
+              <nav id="dropdown">
+                <ul>
+                  <li><a href="index.html">HOME</a>
+                    <ul>
+                      <li><a href="index-2.html">Home 2</a></li>
+                      <li><a href="index-3.html">Home 3</a></li>
+                      <li><a href="index-4.html">Home 4</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">SHOP</a>
+                    <ul>
+                      <li><a href="shop-grid.html">Shop Grid</a></li>
+                      <li><a href="shop-list.html">Shop List</a></li>
+                      <li><a href="product-details.html">Product Details</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="blog.html">Blog</a>
+                    <ul>
+                      <li><a href="blog-details.html">Blog Details</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="about.html">ABOUT</a>
+                  <li><a href="#">PAGES</a>
+                    <ul>
+                      <li><a href="account.html">My Account</a></li>
+                      <li><a href="cart.html">Cart</a></li>
+                      <li><a href="checkout.html">Checkout</a></li>
+                      <li><a href="wishlist.html">Wishlist</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="contact.html">CONTACT</a></li>
                 </ul>
-                <p class="author">Copyright © 2016 <a href="#">BootExperts</a> All Rights Reserved.</p>
               </nav>
-            </div>
-            <div class="col-md-5">
-              <p class="payment-image">
-                <img src="/assets/payment.png" alt="">
-              </p>
-            </div>
+            </div>          
           </div>
-        </div>    
+        </div>
       </div>
-    </footer>
+    </div>
+    
+  </header>
+  <%= yield %>
+  <div class="brand-area">
+    <div class="container">
+    <div class="brand-content-home-three">
+      <div class="row">
+      <div class="brand-carousel">
+        <div class="col-md-2">
+        <div class="single-brand">
+          <a href="#">
+          <img src="/assets/brand/1.jpg" alt="">
+          </a>
+        </div>
+        </div>
+        <div class="col-md-2">
+        <div class="single-brand">
+          <a href="#">
+          <img src="/assets/brand/2.jpg" alt="">
+          </a>
+        </div>
+        </div>
+        <div class="col-md-2">
+        <div class="single-brand">
+          <a href="#">
+          <img src="/assets/brand/3.jpg" alt="">
+          </a>
+        </div>
+        </div>
+        <div class="col-md-2">
+        <div class="single-brand">
+          <a href="#">
+          <img src="/assets/brand/4.jpg" alt="">
+          </a>
+        </div>
+        </div>
+        <div class="col-md-2">
+        <div class="single-brand">
+          <a href="#">
+          <img src="/assets/brand/5.jpg" alt="">
+          </a>
+        </div>
+        </div>
+        <div class="col-md-2">
+        <div class="single-brand">
+          <a href="#">
+          <img src="/assets/brand/6.jpg" alt="">
+          </a>
+        </div>
+        </div>
+        <div class="col-md-2">
+        <div class="single-brand">
+          <a href="#">
+          <img src="/assets/brand/1.jpg" alt="">
+          </a>
+        </div>
+        </div>
+        <div class="col-md-2">
+        <div class="single-brand">
+          <a href="#">
+          <img src="/assets/brand/6.jpg" alt="">
+          </a>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="service-area">
+    <div class="container">
+    <div class="service-padding">   
+      <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="single-service">
+        <span class="fa fa-truck"></span>
+        <h3>fREE SHIPPING</h3>
+        <p>One order over $99</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="single-service">
+        <span class="fa fa-dropbox"></span>
+        <h3>Special gift cards</h3>
+        <p> Give the perfect gift</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="single-service">
+        <span class="fa fa-calendar-o"></span>
+        <h3>Daily promotion</h3>
+        <p> Set up perspiciatis unde</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 hidden-sm col-xs-12">
+        <div class="single-service">
+        <span class="fa fa-comments-o"></span>
+        <h3>Special gift cards</h3>
+        <p> Give the perfect gift</p>
+        </div>
+      </div>
+      </div>
+    </div>    
+    </div>
+  </div>
+  <div class="footer-widget-area">
+    <div class="container">
+    <div class="footer-widget-padding"> 
+      <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="single-widget">
+        <div class="footer-widget-title">
+          <h3>our support</h3>
+        </div>
+        <div class="footer-widget-list ">
+          <ul>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Your Account</a></li>
+          <li><a href="#">Advanced Search</a></li>
+          <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 hidden-sm col-xs-12">
+        <div class="single-widget">
+        <div class="footer-widget-title">
+          <h3>My account</h3>
+        </div>
+        <div class="footer-widget-list ">
+          <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Order History</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Specials</a></li>
+          <li><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="single-widget">
+        <div class="footer-widget-title">
+          <h3>Contact us</h3>
+        </div>
+        <div class="footer-widget-list ">
+          <ul class="address">
+          <li><span class="fa fa-map-marker"></span> Addresss: Lorem ipsum dolor</li>
+          <li><span class="fa fa-phone"></span> (800) 0123 4567 890</li>
+          <li class="support-link"><span class="fa fa-envelope-o"></span> admin@bootexperts.com</li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="single-widget">
+        <div class="footer-widget-title">
+          <h3>Sign up for newsletter</h3>
+        </div>
+        <div class="footer-widget-list ">
+          <form id="newsletter" method="post" action="#">
+          <div class="newsletter-content">
+             <input type="text" name="email">
+            <button class="button" type="submit"><span>Subscribe</span></button>
+          </div>
+          </form>
+          <ul class="social-link">
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-rss"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="modal-detail">
+  </div>
+  <footer class="footer footer">
+    <div class="container">
+    <div class="footer-padding">
+      <div class="row">
+      <div class="col-md-7">
+        <nav>
+        <ul id="footer-menu">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Customer Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="author">Copyright © 2016 <a href="#">BootExperts</a> All Rights Reserved.</p>
+        </nav>
+      </div>
+      <div class="col-md-5">
+        <p class="payment-image">
+        <img src="/assets/payment.png" alt="">
+        </p>
+      </div>
+      </div>
+    </div>    
+    </div>
+  </footer>
   </body>
   <script src="/assets/jquery-1.11.3.min.js" type="text/javascript"></script>
   <script src="/assets/bootstrap.min.js" type="text/javascript"></script>

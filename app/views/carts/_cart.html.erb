@@ -10,8 +10,8 @@
         <a href="#" class="product-name"> <%= line_item.product.name %></a>
         <%= link_to "", line_item_path(line_item.id), method: :delete, class: "remove-product", remote: true %>
         <div class="price-times">
-          <span class="quantity"><strong> <%= line_item.quantity %></strong></span>
-          <span class="p-price"><%= number_to_currency(line_item.total_price) %></span>
+          <span class="quantity"><strong> <%= line_item.quantity %></strong> x </span>
+          <span class="p-price"><%= number_to_currency(line_item.product.price) %></span>
         </div>
       </div>
     </div>
