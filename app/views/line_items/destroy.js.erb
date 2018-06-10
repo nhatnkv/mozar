@@ -1,6 +1,13 @@
 $("#line-item-count").html("<%= @cart.present? ? @cart.line_items.count : 0 %>");
 $(".cart-products-list").html("<%= j render 'carts/cart', cart: @cart %>");
 $(".cart-price-list").html("<%= j render 'carts/total_price', cart: @cart %>");
+$("#list-line-items").html("<%= j render partial: 'carts/line_item', collection: @cart.line_items, as: :line_item %>");
+$(".checkout-panel-body").html("<%= j render(partial: 'carts/line_items_total', collection: @cart.line_items, as: :line_item) %>");
+$(".checkout-product-total").html(<%= @cart.total_price %>);
+$("#update-btn").html("<%= j render(partial: 'carts/button_update') %>");
+<% if @cart.line_items.empty? %>
+  $(".update-cart-btn").css("display", "none");
+<% end %>
 $.notify({
   title: '<strong>Deleted</strong>',
   icon: 'glyphicon glyphicon-star',

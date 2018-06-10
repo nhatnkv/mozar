@@ -1,0 +1,22 @@
+<tr data-id="<%= line_item.id %>">
+  <td class="p-image">
+    <%= link_to "#" do %>
+      <%= image_tag image_tag_cart(line_item), class: "floatleft image-list-item" %>
+    <% end %>
+  </td>
+  <td class="p-name">
+    <a href="product-details.html"><%= line_item.product.try(:name) %></a>
+  </td>
+  <td class="edit"></td>
+  <td class="p-amount"><%= line_item.product.price %></td>
+  <td class="p-quantity">
+    <%= number_field_tag "line_items[#{line_item.id}]", line_item.quantity %>
+  <td class="p-total"><%= line_item.total_price %></td>
+  <td class="p-action">
+    <%= link_to line_item_path(line_item.id), method: :delete, class: "remove-product", remote: true do %>
+      <i class="fa fa-times"></i>
+    <% end %>
+  </td>
+  <%= hidden_field_tag :id, @cart.id %>
+</tr>
+
