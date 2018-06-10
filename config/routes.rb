@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :line_items
   resources :carts
+  post "carts/update_checkout" => "carts#update_checkout"
   resources :images
   namespace :manager do
     resources :products

@@ -1,0 +1,20 @@
+<div class="grid">
+  <div class="img borderless">
+    <a href="javascript.void(0)">
+      <%= image_tag image_tag_cart(line_item) %>
+    </a>
+  </div>
+  <div class="g-price">
+    <span class="checkout-product-price"><%= line_item.total_price %></span>
+  </div>
+  <div class="g-content">
+    <div class="g-row">
+      <a class="g-title" href="javascript.void(0);">
+        <%= line_item.product.description %>
+      </a>
+    </div>
+    <div class="g-row">
+      <span class="checkout-product-count">x <%= line_item.quantity %></span>
+    </div>
+  </div>
+</div>

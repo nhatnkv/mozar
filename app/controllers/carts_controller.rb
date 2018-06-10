@@ -1,8 +1,16 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  include CurrentCart
+  before_action :set_cart, only: [:show, :edit, :update, :destroy, :update_checkout]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   def show
+  end
+
+  def update_checkout
+    line_items = @cart.line_items.to_a
+    line_items.each do |line_item|
+      line_item.update(quantity: params[:line_items]["#{line_item.id}"].to_i)
+    end
   end
 
   private
