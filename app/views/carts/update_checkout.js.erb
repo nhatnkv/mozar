@@ -2,3 +2,5 @@
 $("#list-line-items").html("<%= j render(partial: 'line_item', collection: line_items, as: :line_item) %>");
 $(".checkout-panel-body").html("<%= j render(partial: 'line_items_total', collection: line_items, as: :line_item) %>");
 $(".checkout-product-total").html(<%= @cart.total_price %>);
+$(".cart-products-list").html("<%= j render 'cart', cart: @cart %>");
+$(".cart-price-list").html("<%= j render 'carts/total_price', cart: @cart %>");
