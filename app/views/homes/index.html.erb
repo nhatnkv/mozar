@@ -83,12 +83,12 @@
                       <%= image_tag image_url(product.images, "main") %>
                     </span>
                   <% end %>
-                  <div class="button-actions clearfix">
+                  <div class="button-actions clearfix" id="div-item-<%= product.id %>">
                     <%= button_to line_items_path(line_item:{product_id: product}), name: "line_item[]", class: "button add-to-cart", remote: true do %>
                       <span><i class="fa fa-shopping-cart"></i></span>
                     <% end %>
                     <ul class="add-to-links">
-                      <li class="quickview">
+                      <li class="quickview" id='item-<%= product.id %>'>
                         <%= link_to product_show_path(id: product.id), method: :get, remote: true, class: "btn-quickview modal-view" do %>
                           <i class="fa fa-search-plus"></i>
                         <% end %>
