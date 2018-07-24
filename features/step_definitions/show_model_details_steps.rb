@@ -42,4 +42,3 @@ end
 Then 'I should see popup of that product detail togged' do
   expect(page).to have_content('See all features')
 end
-
