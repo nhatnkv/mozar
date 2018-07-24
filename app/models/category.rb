@@ -20,6 +20,7 @@ class Category < ApplicationRecord
   validates :name, presence: true, length: {maximum: 200}
 
   before_save :set_level
+  after_save :update_level, if: :child?
 
   def set_level
     if self.children.any? && self.parent.present?
@@ -29,5 +30,14 @@ class Category < ApplicationRecord
     else self.children.blank?
       self.level = LEVEL[:small]
     end
+  end
+
+  def update_level
+    category = Category.find(self.parent_id)
+    category.update(level: LEVEL[:medium]) if category.present? && category.parent_id
+  end
+
+  def child?
+    self.level == LEVEL[:small]
   end
 end
