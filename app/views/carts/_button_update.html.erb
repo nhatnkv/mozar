@@ -1,8 +1,4 @@
-<% display_btn = @cart.line_items.exists? ? 'block' : 'none' %>
+<% display_btn = @cart.line_items.present? ? 'block' : 'none' %>
 <div id='update-cart' style='text-align: <%= display_btn == 'none' ? 'center' : '' %>'>
-  <% if display_btn == 'none' %>
-    <span id='suggest-shopping'>No item, <%= link_to 'Go Shopping', root_path %></span>
-  <% else %>
-    <%= submit_tag 'Update Cart', class: 'pull-right btn btn-primary update-cart-btn' %>
-  <% end %>
+  <%= @cart.no_item_or_update_item_request display_btn %>
 </div>

@@ -1,5 +1,5 @@
-<% if @cart.present? && @cart.line_items.exists? %>
-  <% @cart.line_items.includes(:product).each do |line_item| %>
+<% if @cart.present? && @cart.line_items.present? %>
+  <% @cart.line_items.each do |line_item| %>
     <div class="cart-products">
       <div class="cart-image">
         <a href="#">
