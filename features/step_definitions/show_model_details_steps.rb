@@ -1,7 +1,6 @@
-def create_product
+def create_product(number)
   category = FactoryGirl.create(:category)
-  @products = FactoryGirl.create_list(:product, 5, category_id: category.id)
-  create_image
+  @products = FactoryGirl.create_list(:product, number, category_id: category.id)
 end
 
 def create_image
@@ -11,16 +10,13 @@ def create_image
   end
 end
 
-Given('there are five products in the application') do
-  create_product
+Given(/^there are ([0-9]*) products in the application$/) do |number|
+  create_product(number.to_i)
+  create_image
 end
 
 When 'I go to the list products' do
   visit root_path
-end
-
-Then 'I can see the product list' do
-  expect(Product.count).to eq(5)
 end
 
 When 'I scroll to new product tag' do
@@ -29,8 +25,8 @@ When 'I scroll to new product tag' do
                       }, 'slow');")
 end
 
-Then 'I see five new products' do
-  expect(page).to have_selector('li.quickview', count: 5)
+Then(/^I should be see ([0-9]*) new products$/) do |number|
+  expect(page).to have_selector('li.quickview', count: number)
 end
 
 When 'I click on product with ID#item-5' do

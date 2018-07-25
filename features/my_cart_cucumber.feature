@@ -3,4 +3,4 @@ Feature: My Cart Cucumber
   
 Scenario: User sees the text My Cart
 When I go to the homepage
-Then I should see the My Cart
+Then I should be see the My Cart
