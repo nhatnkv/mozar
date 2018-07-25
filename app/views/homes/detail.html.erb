@@ -366,21 +366,21 @@
         <div class="single-products-category">
           <div class="section-title"><h2>Related PRODUCTS</h2></div>
           <div class="category-products">
-            <% @home_facade.relead_products.each do |relead_product| %>
+            <% @home_facade.related_products.each do |related_product| %>
               <div class="product-items">
                 <div class="p-category-image">
                   <a href="#">
-                    <%= image_tag image_80x100(relead_product.images) %>
+                    <%= image_tag image_80x100(related_product.images) %>
                   </a>
                 </div>
                 <div class="p-category-text">
-                  <h2 class="category-product-name"><a href="#"><%= relead_product.name %></a></h2>
+                  <h2 class="category-product-name"><a href="#"><%= related_product.name %></a></h2>
                   <div class="price-box">
                     <p class="old-price">
-                      <span class="price"><%= relead_product.price %></span>
+                      <span class="price"><%= related_product.price %></span>
                     </p>
                     <p class="special-price">
-                      <span class="price"><%= relead_product.price %></span>
+                      <span class="price"><%= related_product.price %></span>
                     </p>                      
                   </div>
                 </div>

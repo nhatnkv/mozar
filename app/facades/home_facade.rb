@@ -1,9 +1,10 @@
 class HomeFacade
   attr_reader :product
+  RELATED_PRODUCT = 3
 
   def initialize(product)
     @product = product
-    @images = @product.images.to_a
+    @images = product.images.to_a
   end
 
   def image_main
@@ -18,7 +19,7 @@ class HomeFacade
     end
   end
 
-  def relead_products
-    Product.where(category_id: @product.category_id).limit(3)
+  def related_products
+    Product.where(category_id: product.category_id).limit(RELATED_PRODUCT)
   end
 end

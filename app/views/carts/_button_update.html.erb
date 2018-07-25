@@ -1,4 +1,3 @@
-<% display_btn = @cart.line_items.present? ? 'block' : 'none' %>
-<div id='update-cart' style='text-align: <%= display_btn == 'none' ? 'center' : '' %>'>
-  <%= @cart.no_item_or_update_item_request display_btn %>
+<div id='update-cart' style='text-align: <%= @cart.align_cart %>'>
+  <%= @cart.no_item_or_update_item_request %>
 </div>
