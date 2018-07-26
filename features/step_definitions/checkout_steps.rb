@@ -7,6 +7,7 @@ Then 'I dont see any item in cart and checkout button' do
 end
 
 When 'I click on checkout button' do
+  sleep(5)
   page.find('.cart-buttons a').click
 end
 
@@ -29,10 +30,9 @@ Then 'I see alert add item to success' do
 end
 
 Then 'I see item in cart' do
-  expect(page).to have_selector('.cart-products', count: 1)
+  expect(page).to have_selector('#cart-1', count: 1)
 end
 
 Then 'I go to checkout page' do
-  sleep(5)
   expect(page).to have_current_path(new_order_path)
 end
