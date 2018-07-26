@@ -55,7 +55,7 @@ group :development, :test do
   gem 'pry-byebug'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'

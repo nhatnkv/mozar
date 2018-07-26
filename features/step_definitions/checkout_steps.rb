@@ -21,7 +21,7 @@ When 'I add first product to cart' do
 end
 
 When 'I scroll to top page' do
-  page.execute_script("$(window).scrollTop(0, 0)")
+  page.execute_script('$(window).scrollTop(0, 0)')
 end
 
 Then 'I see alert add item to success' do
