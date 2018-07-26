@@ -21,12 +21,12 @@
             <div class="zoomWrapper">
               <div id="img-1" class="zoomWrapper single-zoom">
                 <div>
-                  <%= image_tag image_detail(@image_main, "/assets/product/20.jpg"), id: "zoom1", 'data-zoom-image': image_detail(@image_main, "/assets/product/20.jpg"), alt: "big-1" %>
+                  <%= image_tag image_detail(@home_facade.image_main, "/assets/product/20.jpg"), id: "zoom1", 'data-zoom-image': image_detail(@home_facade.image_main, "/assets/product/20.jpg"), alt: "big-1" %>
                 </div>
               </div>
               <div class="product-thumb row">
                 <ul class="p-details-slider" id="gallery_01">
-                  <% @images_normal.each do |image| %>
+                  <% @home_facade.images_normal.each do |image| %>
                     <li class="col-md-4">
                       <a class="elevatezoom-gallery" href="#" data-image="<%= image_detail(image, "/assets/product/20.jpg") %>" data-zoom-image="<%= image_detail(image, "/assets/product/20.jpg") %>">
                       <%= image_tag image_detail(image, "/assets/product/20.jpg") %></a>
@@ -366,21 +366,21 @@
         <div class="single-products-category">
           <div class="section-title"><h2>Related PRODUCTS</h2></div>
           <div class="category-products">
-            <% @relead_products.each do |relead_product| %>
+            <% @home_facade.related_products.each do |related_product| %>
               <div class="product-items">
                 <div class="p-category-image">
                   <a href="#">
-                    <%= image_tag image_80x100(relead_product.images) %>
+                    <%= image_tag image_80x100(related_product.images) %>
                   </a>
                 </div>
                 <div class="p-category-text">
-                  <h2 class="category-product-name"><a href="#"><%= relead_product.name %></a></h2>
+                  <h2 class="category-product-name"><a href="#"><%= related_product.name %></a></h2>
                   <div class="price-box">
                     <p class="old-price">
-                      <span class="price"><%= relead_product.price %></span>
+                      <span class="price"><%= related_product.price %></span>
                     </p>
                     <p class="special-price">
-                      <span class="price"><%= relead_product.price %></span>
+                      <span class="price"><%= related_product.price %></span>
                     </p>                      
                   </div>
                 </div>

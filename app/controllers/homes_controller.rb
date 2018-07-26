@@ -8,15 +8,7 @@ class HomesController < ApplicationController
   end
 
   def detail
-    images = @product.images.to_a
-    @image_main = images.find do |image|
-      image.tag == Image::TAG[:main]
-    end
-    @images_normal = images.select do |image|
-      image.tag != 'main'
-    end.to_a
-
-    @relead_products = Product.where(category_id: @product.category_id).limit(3)
+    @home_facade = HomeFacade.new(@product)
   end
 
   private
