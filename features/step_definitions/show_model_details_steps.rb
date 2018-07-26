@@ -6,8 +6,8 @@ end
 
 def create_image
   @products.each do |product|
-    Image.create(remote_img_url: "https://content.diamondnexus.com/media/catalog/product/cache/1/image/600x/9df78eab33525d08d6e5fb8d27136e95/e/m/emerald-ruby.jpg",
-      title: FFaker::CheesyLingo.title, tag: 1, product_id: product.id)
+    Image.create(remote_img_url: 'https://content.diamondnexus.com/media/catalog/product/cache/1/image/600x/9df78eab33525d08d6e5fb8d27136e95/e/m/emerald-ruby.jpg',
+                 title: FFaker::CheesyLingo.title, tag: 1, product_id: product.id)
   end
 end
 

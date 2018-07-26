@@ -1,21 +1,19 @@
-root_categories = ["Shoes", "T-Shirt", "Jean", "Vest"]
+root_categories = ['Shoes', 'T-Shirt', 'Jean', 'Vest']
 
-puts "Creating root category"
+puts 'Creating root category'
 Category.destroy_all
 root_categories.each do |category|
   Category.create(name: category)
 end
 
-
-puts "Creating category"
+puts 'Creating category'
 Category.where(level: 1).each do |category|
-  root_categories.each do |name|
+  root_categories.each do |_name|
     Category.create(name: FFaker::Name.name, parent_id: category.id)
   end
-
 end
 
-puts "Create medium category"
+puts 'Create medium category'
 categories_50_first = Category.where(level: 3).limit(10)
 categories_last = Category.where(level: 3).where.not(id: categories_50_first.pluck(:id))
 
@@ -26,7 +24,7 @@ categories_last.each do |category_last|
   end
 end
 
-puts "Creating product"
+puts 'Creating product'
 Product.destroy_all
 Category.where(level: 3).each do |category|
   4.times do
@@ -41,7 +39,7 @@ Category.where(level: 3).each do |category|
   end
 end
 
-puts "Create images"
+puts 'Create images'
 
 Product.all.each do |product|
   product.images.create(remote_img_url: FFaker::Avatar.image, title: FFaker::CheesyLingo.title, tag: 1)

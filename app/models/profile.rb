@@ -12,7 +12,7 @@
 
 class Profile < ApplicationRecord
   validates :name, :address, :phone, presence: true
-  validates :name, length: {maximum: 200}
-  validates :address, length: {maximum: 200}
-  validates :phone, length: {maximum: 11}
+  validates :name, length: { maximum: 200 }
+  validates :address, length: { maximum: 200 }
+  validates :phone, length: { maximum: 11 }
 end

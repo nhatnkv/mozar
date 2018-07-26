@@ -11,15 +11,14 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe HomesHelper, type: :helper do
-
   before(:all) do
     @category = create(:category)
     @product = create(:product, category_id: @category.id)
     @image_main = @product.images.create(remote_img_url: 'https://cdn.leibish.com/media/gemstones/thumb_w800/gemstone-50525-ruby-pear-red-6a48e.jpg',
-      tag: Image::TAG[:main])
+                                         tag: Image::TAG[:main])
 
     @image_assistant = @product.images.create(remote_img_url: 'http://spiritualzonshop.com/1029-home_default/ruby-manik.jpg',
-      tag: Image::TAG[:assistant])
+                                              tag: Image::TAG[:assistant])
   end
 
   describe 'main image' do

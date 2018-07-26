@@ -1,11 +1,10 @@
 class HomesController < ApplicationController
-  before_action :set_product, only: [:detail, :show]
+  before_action :set_product, only: %i[detail show]
   def index
     @products = Product.all
   end
 
-  def show
-  end
+  def show; end
 
   def detail
     @home_facade = HomeFacade.new(@product)

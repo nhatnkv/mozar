@@ -1,5 +1,5 @@
 class Manager::ProductsController < ManagerController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: %i[show edit update destroy]
 
   # GET /manager/products
   # GET /manager/products.json
@@ -9,8 +9,7 @@ class Manager::ProductsController < ManagerController
 
   # GET /manager/products/1
   # GET /manager/products/1.json
-  def show
-  end
+  def show; end
 
   # GET /manager/products/new
   def new
@@ -18,8 +17,7 @@ class Manager::ProductsController < ManagerController
   end
 
   # GET /manager/products/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /manager/products
   # POST /manager/products.json
@@ -62,13 +60,14 @@ class Manager::ProductsController < ManagerController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:name, :price, :description, :quantity, :status, :tag, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_params
+    params.require(:product).permit(:name, :price, :description, :quantity, :status, :tag, :category_id)
+  end
 end

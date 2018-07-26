@@ -1,5 +1,5 @@
 class ImagesController < ManagerController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: %i[show edit update destroy]
 
   # GET /images
   # GET /images.json
@@ -9,8 +9,7 @@ class ImagesController < ManagerController
 
   # GET /images/1
   # GET /images/1.json
-  def show
-  end
+  def show; end
 
   # GET /images/new
   def new
@@ -18,8 +17,7 @@ class ImagesController < ManagerController
   end
 
   # GET /images/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /images
   # POST /images.json
@@ -62,13 +60,14 @@ class ImagesController < ManagerController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_image
-      @image = Image.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def image_params
-      params.require(:image).permit(:img, :title, :product_id, :tag)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_image
+    @image = Image.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def image_params
+    params.require(:image).permit(:img, :title, :product_id, :tag)
+  end
 end

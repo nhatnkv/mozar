@@ -10,7 +10,7 @@ RSpec.describe CartDecorator do
     it 'return total item price' do
       category = create(:category)
       product = create(:product, category_id: category.id, price: 10)
-      line_item = create(:line_item,  product_id: product.id, cart_id: @cart.id, quantity: 5)
+      line_item = create(:line_item, product_id: product.id, cart_id: @cart.id, quantity: 5)
       expect(@cart.decorate.total_price).to eq(product.price * line_item.quantity)
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe CartDecorator do
       it "return style text-align = ''" do
         category = create(:category)
         product = create(:product, category_id: category.id, price: 10)
-        line_item = create(:line_item,  product_id: product.id, cart_id: @cart.id, quantity: 5)
+        create(:line_item, product_id: product.id, cart_id: @cart.id, quantity: 5)
         expect(@cart.decorate.align_cart).to eq('')
       end
     end

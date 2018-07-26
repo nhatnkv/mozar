@@ -14,8 +14,8 @@ class HomeFacade
   end
 
   def images_normal
-    @images.select do |image|
-      image.tag != Image::TAG[:main]
+    @images.reject do |image|
+      image.tag == Image::TAG[:main]
     end
   end
 
