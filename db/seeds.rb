@@ -33,7 +33,7 @@ Category.where(level: 3).each do |category|
     Product.create(
       name: FFaker::Name.name,
       price: FFaker::Address.building_number,
-      description: FFaker::Lorem.paragraphs,
+      description: FFaker::Lorem.paragraph.to_s,
       quantity: rand(1000..5000),
       status: Product::STATUS.values.sample,
       category_id: category.id

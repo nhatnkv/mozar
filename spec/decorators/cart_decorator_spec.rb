@@ -6,7 +6,7 @@ RSpec.describe CartDecorator do
     @cart = create(:cart)
   end
 
-  describe '.total_price' do
+  describe '#total_price' do
     it 'return total item price' do
       category = create(:category)
       product = create(:product, category_id: category.id, price: 10)
@@ -15,7 +15,7 @@ RSpec.describe CartDecorator do
     end
   end
 
-  describe '.align_cart' do
+  describe '#align_cart' do
     context 'when line_items is empty' do
       it 'return style text-align = center' do
         expect(@cart.decorate.align_cart).to eq('center')

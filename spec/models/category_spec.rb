@@ -13,18 +13,18 @@
 require 'rails_helper'
 
 RSpec.describe Category do
-  describe 'validates' do
+  describe '.validates' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_length_of(:name).is_at_most(200) }
   end
 
-  describe 'association' do
+  describe '.association' do
     it { is_expected.to have_many(:children) }
     it { is_expected.to have_many(:products) }
     it { is_expected.to belong_to(:parent) }
   end
 
-  describe '.set level' do
+  describe '#set level' do
     context 'when parent_id == nil' do
       it 'return level 1' do
         category = build(:category, parent_id: nil)
