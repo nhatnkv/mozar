@@ -33,5 +33,6 @@ Then 'I see item in cart' do
 end
 
 Then 'I go to checkout page' do
+  sleep(5)
   expect(page).to have_current_path(new_order_path)
 end
