@@ -5,8 +5,8 @@ class CartsController < ApplicationController
   def show; end
 
   def update_checkout
-    update_cart_service = UpdateCart.new(@cart)
-    update_cart_service.call(params[:line_items])
+    service = UpdateCart.new(@cart, params[:line_items])
+    service.call
   end
 
   private
