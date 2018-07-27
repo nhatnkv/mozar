@@ -21,4 +21,8 @@ class CartDecorator < Draper::Decorator
       submit_tag 'Update Cart', class: 'pull-right btn btn-primary update-cart-btn'
     end
   end
+
+  def line_items
+    super.includes(:product).decorate
+  end
 end

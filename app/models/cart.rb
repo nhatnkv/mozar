@@ -19,9 +19,4 @@ class Cart < ApplicationRecord
     end
     current_item
   end
-
-  def line_items
-    # Pretend this is complex logic
-    super.includes(:product)
-  end
 end
