@@ -1,6 +1,5 @@
 class LineItemsController < ApplicationController
-  include CurrentCart
-  before_action :set_cart, only: [:create, :destroy]
+  before_action :set_cart, only: %i[create destroy]
 
   def create
     @product = Product.find(line_item_params[:product_id])
@@ -27,8 +26,9 @@ class LineItemsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def line_item_params
-      params.require(:line_item).permit(:product_id)
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def line_item_params
+    params.require(:line_item).permit(:product_id)
+  end
 end

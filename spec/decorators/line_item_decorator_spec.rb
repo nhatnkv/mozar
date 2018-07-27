@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LineItemDecorator do
-  describe '.total_price' do
+  describe '#total_price' do
     it 'return total product price' do
       cart = create(:cart)
       category = create(:category)

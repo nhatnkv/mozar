@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "home/index", type: :view do
-  before do 
+RSpec.describe 'home/index', type: :view do
+  before do
     category = create(:category)
     create_list(:product, 5, category_id: category.id)
     @products = Product.all
-    render template: "homes/index.html.erb"
+    render template: 'homes/index.html.erb'
   end
 
   describe 'have content' do

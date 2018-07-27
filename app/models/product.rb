@@ -15,7 +15,7 @@
 #
 
 class Product < ApplicationRecord
-  STATUS = {display: 1, block: 2, empty: 3, sell: 4}
+  STATUS = { display: 1, block: 2, empty: 3, sell: 4 }.freeze
   belongs_to :category
   has_many   :images
   has_many   :line_items
@@ -23,21 +23,21 @@ class Product < ApplicationRecord
   before_destroy :ensure_not_referenced_by_any_line_item
 
   validates :name, :price, :description, :quantity, :status, presence: true
-  validates :name, length: {maximum: 200}
-  validates :description, length: {maximum: 2000}
-  validates :price, :quantity, numericality: {only_integer: true}
-  validates :price, numericality: {less_than_or_equal_to: 50_000_000}
-  validates :quantity, numericality: {less_than_or_equal_to: 5_000}
-  validates :status, inclusion: {in: STATUS.values}
+  validates :name, length: { maximum: 200 }
+  validates :description, length: { maximum: 2000 }
+  validates :price, :quantity, numericality: { only_integer: true }
+  validates :price, numericality: { less_than_or_equal_to: 50_000_000 }
+  validates :quantity, numericality: { less_than_or_equal_to: 5_000 }
+  validates :status, inclusion: { in: STATUS.values }
 
   private
 
   def ensure_not_referenced_by_any_line_item
     if line_items.empty?
-      return true
+      true
     else
       errors.add(:base, 'Line Items present')
-      return false
+      false
     end
   end
 end
