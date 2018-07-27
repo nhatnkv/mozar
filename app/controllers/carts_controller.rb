@@ -5,10 +5,8 @@ class CartsController < ApplicationController
   def show; end
 
   def update_checkout
-    line_items = @cart.line_items.to_a
-    line_items.each do |line_item|
-      line_item.update(quantity: params[:line_items][line_item.id.to_s].to_i)
-    end
+    update_cart_service = UpdateCart.new(@cart)
+    update_cart_service.call(params[:line_items])
   end
 
   private
